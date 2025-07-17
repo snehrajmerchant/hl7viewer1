@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HL7 Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="nav-logo">HL7</span>
+      <span class="nav-title">HL7 Viewer</span>
+      <div class="fab" id="loadBtn" title="Load HL7 File">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#1976d2"/>
+          <path d="M12 7V17M7 12H17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="file" id="fileInput" accept=".hl7,.txt" style="display:none" />
+      </div>
+      <span id="selectedFileName" class="file-name-header" style="margin-left:16px; font-size:0.98em; color:#1976d2;"></span>
+    </div>
+    <nav class="nav-links">
+      <!-- Future nav links can go here -->
+    </nav>
+  </header>
+  <main class="container">
+    <section class="panel segments-panel" id="segmentsPanel">
+      <h2>HL7 Segments</h2>
+      <div id="segmentsList"></div>
+    </section>
+    <div class="resizer" id="resizer"></div>
+    <section class="panel details-panel" id="detailsPanel">
+      <h2>Segment Details</h2>
+      <div id="segmentDetails">Select a segment to view details.</div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
