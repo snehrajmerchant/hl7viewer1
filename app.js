@@ -173,7 +173,7 @@ function showSegmentDetails(segment) {
     
     if (segType === 'OBX' && i === 5) {
       // Check if OBX5 contains PDF data
-      if (field && (field.includes('Application^PDF^^Base64') || field.includes('Application^PDF^^Base64^') || /^JVBERi0xL/.test(field))) {
+      if (field && (field.toLowerCase().includes('application^pdf^^base64') || field.toLowerCase().includes('application^pdf^^base64^') || /^JVBERi0xL/.test(field))) {
         fieldValue = '[PDF Data - See viewer below]';
         shouldHide = true;
       }
@@ -203,7 +203,7 @@ function showSegmentDetails(segment) {
       const obx5 = fields[5];
       
               // Check if it contains Application^PDF^^Base64 format (with or without trailing ^)
-        if (obx5 && (obx5.includes('Application^PDF^^Base64') || obx5.includes('Application^PDF^^Base64^'))) {
+        if (obx5 && (obx5.toLowerCase().includes('application^pdf^^base64') || obx5.toLowerCase().includes('application^pdf^^base64^'))) {
           // Extract the base64 data after the format specifier
           const parts = obx5.split('^');
         
